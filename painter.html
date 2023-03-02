@@ -41,34 +41,25 @@
             name1 = document.getElementById("form1_age").value
     
             name2 = document.getElementById("form1_nick").value
-    	
-            confirmed = confirm("Are these the values? "+name1+" and "+name2)          
     
             out = document.getElementById("result")
     
             if(name1==name2){
-                count=0
-    
-                good=good+1;
-    
                 alert("You got it right");
-    
-            }else {
-                if(count<3){
-                    oops=oops+1
-                    count=count+1
-                    alert("Access denied")
-                }  
-                else{
-                    alert("Sorry")
-    
-                }  
-                
-                        
-    
-            }
-            out.innerHTML=" good "+good+" oops "+oops
+                good=good+1;
+                out.innerHTML='correct answer'+good +'Wrong answer '+oops
+            }else{
+        alert("Sorry")
+        count = count+1
+        oops = oops+1
+        out.innerHTML = "Correct Answer: " +good + " "+  "Wrong Answer: " + oops;
+        if(count>10){
+            out.innerHTML=' Sorry, ran out of guesses'
+            document.getElementById('togglee').style.visibility = 'hidden'
         }
+    }
+}
+
         var useImage=1;
     function selectImage(){
         switch(useImage){
